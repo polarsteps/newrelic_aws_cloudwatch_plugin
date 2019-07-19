@@ -207,6 +207,14 @@ module NewRelicAWS
     end
   end
 
+  module CLOUDFRONT
+    class Agent < Base::Agent
+      agent_guid "com.newrelic.aws.cloudfront"
+      agent_version NewRelicAWS::VERSION
+      agent_human_labels("CloudFront") { "CloudFront" }
+    end
+  end
+
   #
   # Register each agent with the component.
   #
@@ -220,6 +228,7 @@ module NewRelicAWS
   NewRelic::Plugin::Setup.install_agent :sns, SNS if NewRelicAWS::agent_enabled?(:sns)
   NewRelic::Plugin::Setup.install_agent :ec,  EC  if NewRelicAWS::agent_enabled?(:ec)
   NewRelic::Plugin::Setup.install_agent :ecr, ECR if NewRelicAWS::agent_enabled?(:ecr)
+  NewRelic::Plugin::Setup.install_agent :cloudfront, CLOUDFRONT if NewRelicAWS::agent_enabled?(:cloudfront)
 
   #
   # Launch the agents; this never returns.

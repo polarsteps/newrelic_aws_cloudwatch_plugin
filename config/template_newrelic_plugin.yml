@@ -61,3 +61,7 @@ agents:
     enabled: false
   ecr:
     enabled: false
+  cloudfront:
+    enabled: false 
+    distribution_ids:
+      - <distribution_id> 
