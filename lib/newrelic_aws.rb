@@ -215,6 +215,14 @@ module NewRelicAWS
     end
   end
 
+  module S3
+    class Agent < Base::Agent
+      agent_guid "com.newrelic.aws.s3"
+      agent_version NewRelicAWS::VERSION
+      agent_human_labels("S3") { "S3" }
+    end
+  end
+
   #
   # Register each agent with the component.
   #
@@ -229,6 +237,7 @@ module NewRelicAWS
   NewRelic::Plugin::Setup.install_agent :ec,  EC  if NewRelicAWS::agent_enabled?(:ec)
   NewRelic::Plugin::Setup.install_agent :ecr, ECR if NewRelicAWS::agent_enabled?(:ecr)
   NewRelic::Plugin::Setup.install_agent :cloudfront, CLOUDFRONT if NewRelicAWS::agent_enabled?(:cloudfront)
+  NewRelic::Plugin::Setup.install_agent :s3, S3 if NewRelicAWS::agent_enabled?(:s3)
 
   #
   # Launch the agents; this never returns.

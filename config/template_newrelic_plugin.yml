@@ -65,3 +65,8 @@ agents:
     enabled: false 
     distribution_ids:
       - <distribution_id> 
+  s3:
+    enabled: false
+    region : eu-west-1
+    buckets:
+      - <bucket>
