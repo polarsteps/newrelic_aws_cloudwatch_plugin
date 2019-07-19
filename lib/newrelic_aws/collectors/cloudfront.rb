@@ -11,7 +11,7 @@ module NewRelicAWS
           ["5xxErrorRate", "Average", "Percent"],
           ["TotalErrorRate", "Average", "Percent"],
           ["4xxErrorRate", "Average", "Percent"],
-          ["LambdaExecutionError", "Average", "None"],
+          # ["LambdaExecutionError", "Average", "Count/Second"],
           ["Requests", "Average", 'None']
         ]
       end
